@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+div.content {
+    width: 400px;
+    height: 300px;
+    /* background-color: lime;
+    background-image: url('../images/sample.jpg');
+    background-repeat: no-repeat; */
+    /* background-position: 100% 50%; */
+    /* background-size: cover; */  
+    /* background-attachment: scroll; */
+    background: #00ff00 url('../images/favicon_48x48.png') no-repeat center center scroll;
+}
+
+div.box{
+    width: 400px;
+    border: medium dotted #ff0000;
+    background-color: lightsalmon;
+    /* margin: 20px;
+    margin: 10px 20px;
+    margin: 10px 20px 0px; */
+    /* margin: 20px 0px 20px 20px;
+    padding: 20px; */
+}
+
+div.box p.box__content {
+    border: 1px solid blue;
+    background-color: lightskyblue;
+    text-align: justify;
+    /* margin: 20px; */
+    /* padding: 10px; */
+    /* padding: 10px 5px;
+    padding: 10px 5px 0px; */
+    /* padding: 10px 5px 0px 5px; */
+    
+}
+.wraper__box {
+    width: 200px;
+    height: 200px;
+}
+
+.wraper__box-1 {
+    background-color: lime;
+    display: inline-block;
+}
+
+.wraper__box-2 {
+    /* margin-left: -4px; */
+    background-color: blue;
+    display: none;
+}
+
+.wraper__box-3 {
+    background-color: red;
+    display: inline-block;
+}
+
+.wraper__box-1:hover + .wrapper__box-2 {
+    display: inline-block;
+}
+
+/* .wraper .wraper__box-1:hover ~ :nth-child(2){
+    display: inline-block;
+    background-color: grey;
+} */
+
+.tree a{
+    display: list-item;
+}
+
+.section {
+    width: 900px;
+}
+
+.section .section__content {
+    width: 300px;
+    height: 300px;
+    float: left;
+}
+
+.section__content-1 {
+    background-color: red;
+}
+
+.section__content-2 {
+    background-color: lime;
+}
+
+.section__content-3 {
+    background-color: blue;
+}
+
+.clear-float {
+    clear: both;
+}
+
+.pos {
+    width: 400px;
+    height: 400px;
+    border: 1px solid red;
+    position: relative;
+
+}
+
+img.icon {
+    /* position: relative;
+    top: 100px; */
+    position: absolute;
+    top: 0px;
+}

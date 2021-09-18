@@ -1,0 +1,137 @@
+/* setting basic */
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    /* 1rem = 10px */
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    line-height: 1;
+}
+
+img {
+    display: block;
+    /* width: 100%; */
+}
+
+a {
+    text-decoration: none;
+}
+
+ol, li {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+input, textarea, button {
+    outline: none; /* không hiển thị đường viên bên ngoài button */
+    box-shadow: none; /* button sẽ không có đổ bóng */
+    font-family: 'Lato', sans-serif;
+}
+
+:root {
+    --primary-color : #64c29e;
+    --title-color : #353738;
+    --text-color : #848789;
+    --bg-light : #f7f7f7;
+    --bg-dark: #282f35;
+    --border-input : #d3d7d9;
+    --text-input : #c8c8c8;
+}
+
+/* wraper */
+.wraper {
+    max-width: 160rem;
+    margin : 0 auto;
+}
+
+/* header */
+header.header {
+    min-height: 80rem;
+    background-image: url('../images/bg-header.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    display: flex;  
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* nav */
+header.header  nav.nav {
+    margin-top: 3.5rem;
+}
+
+header.header ul.nav__list {
+    display: flex;
+    align-items: center;
+}
+
+header.header ul.nav__list li.nav__item {
+    position: relative;
+    padding: 0 4rem;
+}
+
+header.header ul.nav__list li.nav__item:first-child::after,
+header.header ul.nav__list li.nav__item:nth-child(4)::after
+{
+    content: '.';
+    position: absolute;
+    bottom: 0rem;
+    right: 0rem;
+    font: 1.3rem;
+}
+
+header.header li.nav__item a.nav__link {
+    display: block;
+    text-transform: uppercase;
+    color: var(--text-tilte);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+/* feature */
+section.feature {
+    padding: 11.8rem 28rem 14.2rem 24.2rem;
+    background-color: var(--bg-light);
+    text-align: center;
+}
+
+section.feature img.feature__img-top {
+    margin: 0 auto 3.5rem;
+}
+
+section.feature h2.feature__heading {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    word-spacing: 0.9rem;
+    color: var(--text-tilte);
+    margin: 3.5rem auto;
+}
+
+section.feature p.feature__heading-desc {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 3.5rem auto;
+}

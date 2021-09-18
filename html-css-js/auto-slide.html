@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Slide</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        .slide-img{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="slides">
+            <div class="row slide-img">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <img src="images/photo-001.jpeg" class="img-fluid img-thumbnail" style="width: 100%; max-height: 600px;">
+                </div>
+            </div>
+            <div class="row slide-img">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <img src="images/photo-002.jpeg" class="img-fluid img-thumbnail" style="width: 100%; max-height: 600px;">
+                </div>
+            </div>
+            <div class="row slide-img">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <img src="images/photo-003.jpeg" class="img-fluid img-thumbnail" style="width: 100%; max-height: 600px;">
+                </div>
+            </div>
+            <div class="row slide-img slide-last"></div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.slide-img').removeClass('active');
+            $('.slide-img:first').fadeIn(2000).addClass('active');
+
+            setInterval(function(){
+                $('.slide-img').fadeOut();
+                
+                $('.slides').find('div.active').next().fadeIn(2000).addClass('active');
+                $('.slides').find('div.active').prev().removeClass('active');
+
+                if($('.slides').find('div.active').hasClass('slide-last')){
+                    $('.slide-last').hide().removeClass('active');
+                    $('.slide-img:first').fadeIn(2000).addClass('active');
+                }
+                
+            }, 3000)
+        });
+    </script>
+</body>
+</html>

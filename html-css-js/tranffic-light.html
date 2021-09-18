@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tranffic-light (jquery)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 50px;
+            margin: 20px auto;
+            background-color: black;
+            padding: 5px;
+            color: lime;
+        }
+        .container .container__time {
+            text-align: center;
+            margin: 5px 0px;
+        }
+        .container__color
+        {
+            width: 100%;
+            height: 40px;
+            border-radius: 50%;
+            margin-top: 10px;
+            background-color: grey;
+        }
+
+        .color-red{
+            background-color: red;
+        }
+
+        .color-orange{
+            background-color: orange;
+        }
+
+        .color-green {
+            background-color: green;
+        }
+
+        .control {
+            width: 300px;
+            margin: 20px auto;
+        }
+
+        .control .control__btn{
+            background-color: grey;
+            padding: 10px 20px;
+            border-radius: 10%;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="wraper">
+        <div class="container">
+            <h1 class="container__time">0</h1>
+            <div class="container__color container__color-red"></div>
+            <div class="container__color container__color-orange"></div>
+            <div class="container__color container__color-green"></div>   
+        </div>
+        <div class="control">
+            <button  class="control__btn" id="red">red</button>
+            <button class="control__btn" id="orange">orange</button>
+            <button class="control__btn" id="green">green</button>
+        </div>
+    </div>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.control__btn').click(function(){
+                let self = $(this);
+                let light = self.attr('id');
+                
+                // khi nhấn nút, nút đó sẽ disabled - các nút khác sẽ enable
+                $('.control__btn').prop('disabled', false).css({backgroundColor: 'grey'});
+                self.prop('disabled', true).css({backgroundColor: light});
+                self.parents('.wraper').find('.container__color-'+light).addClass('color-'+light);
+
+                let time = 10;
+                // setInverval(callback, time) - sau 1 thơi gian hành động sẽ được tiếp diễn
+                timeCount = setInterval(function(){
+                    time--;
+                    if(time == 0){
+                        clearInterval(timeCount);
+                        $('h1.container__time').text(0);
+                        $('.control__btn').prop('disabled', false).css({backgroundColor: 'grey'});
+                        $('.container__color').removeClass('color-'+light);
+                    }else{
+                        $('h1.container__time').text(time);
+                    }   
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>

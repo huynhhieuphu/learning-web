@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login (bootstrap + javascript)</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3">
+                <form action="#" method="POST" class="border p-3">
+                    <div class="form-group">
+                        <label for="user">Username</label>
+                        <input type="text" class="form-control" name="user" id="user">
+                        <p class="err-user text-danger"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="pass">Password</label>
+                        <input type="password" class="form-control" name="pass" id="pass">
+                        <p class="err-pass text-danger"></p>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="btnLogin">Login</button>
+                </form>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3">
+                <h3>Kiem tra so nguyen to</h3>
+                <form action="#" method="POST" class="border p-3">
+                    <div class="form-group">
+                        <label for="txtNumber">number</label>
+                        <input type="text" class="form-control" name="txtNumber" id="txtNumber">
+                        <p class="err-txtNumber text-danger"></p>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="btnCheck">Check</button>
+                    <h4 class="result mt-3"></h4>
+                </form>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3">
+                <form class="border p-3">
+                    <div class="form-group">
+                        <label for="txtContent">Content</label>
+                        <textarea name="txtContent" id="txtContent" rows="4" class="form-control"></textarea>
+                    </div>
+                    <p class="content"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let btnLogin = document.getElementById('btnLogin');
+        btnLogin.addEventListener('click', function(){
+            let inputUser = document.getElementById('user');
+            let inputPass = document.getElementById('pass');
+            let errUser = document.getElementsByClassName('err-user')[0];
+            let errPass = document.getElementsByClassName('err-pass')[0];
+            let username = inputUser.value;
+            let password = inputPass.value;
+            // console.log(username, password);
+
+            // Validation
+            // Phía front-end (không bắt phải có) - nhưng để trải nghiệm tốt có tôt hơn
+            // phía back-end (bắt buộc validation)
+
+            let checkUser, checkPass = null;
+            if(username.length > 0){
+                if(username.length > 3){
+                    checkUser = true;
+                    errUser.innerHTML = '';
+                    inputUser.style.borderColor = '#cacaca';
+                }else{
+                    checkUser = false;
+                    errUser.innerHTML = 'Toi thieu username 4 ky tu';
+                    inputUser.style.border = '1px solid #ff0000';
+                }
+            }else{
+                checkUser = false;
+                errUser.innerHTML = 'Vui long nhap username';
+                inputUser.style.border = '1px solid #ff0000';
+            }
+
+            if(password.length > 0){
+                if(password.length > 5){
+                    checkPass = true;
+                    errPass.innerHTML = '';
+                    inputPass.style.borderColor = '#cacaca';
+                }else{
+                    checkPass = false;
+                    errPass.innerHTML = 'Toi thieu password 6 ky tu';
+                    inputPass.style.border = '1px solid #ff0000';
+                }
+            }else{
+                checkPass = false;
+                errPass.innerHTML = 'Vui long nhap password';
+                inputPass.style.border = '1px solid #ff0000';
+            }
+
+            if(checkUser && checkPass){
+                if(username === 'root' && password === '123456'){
+                    window.location.href = 'template-blog-bootstrap.html';
+                }else{
+                    alert('username hoac password khong dung');
+                }
+            }
+            return false;
+        });
+
+        document.getElementById('btnCheck').addEventListener('click', function(){
+            let inputTxtNumber = document.getElementById('txtNumber');
+            let errTxtNumber = document.getElementsByClassName('err-txtNumber')[0];
+            let result = document.getElementsByClassName('result')[0];
+            let valTxtNumber = inputTxtNumber.value;
+            let chkTxtNumber = null;
+
+            if(!isNaN(valTxtNumber) && valTxtNumber.length > 0){
+                // đây là số
+                // alert('yes');
+                errTxtNumber.innerHTML = '';
+                inputTxtNumber.style.borderColor = '#cacaca';
+
+                if(kiemTraSoNguyen(valTxtNumber)){
+                    result.innerHTML = `Số ${valTxtNumber} là số nguyên tố`;
+                }else{ 
+                    result.innerHTML = `Số ${valTxtNumber} là không phải số nguyên tố`;
+                }
+            }else{
+                // đây không phải là số
+                //alert('no');
+                inputTxtNumber.value = '';
+                result.innerHTML = '';
+                errTxtNumber.innerHTML = 'Vui long nhap so';
+                inputTxtNumber.style.border = '1px solid #ff0000';
+            }
+        });
+
+        function kiemTraSoNguyen(number){
+            if(number < 1){
+                return false;
+            }
+            if(number == 2){
+                return true;
+            }
+            let sqrt = Math.sqrt(number);
+            for(let i = 2; i <= sqrt; i++){
+                if(number % i == 0){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        document.getElementById('txtContent').addEventListener('keyup', function(){
+            document.querySelector('.content').innerHTML = this.value;
+        });
+    </script>
+</body>
+</html>

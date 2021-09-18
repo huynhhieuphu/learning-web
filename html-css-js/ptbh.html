@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Phuong trinh bac 2 - javascript</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3">
+                <h1 class="text-center my-3">Giai phuong trinh bac 2</h1>
+                <form action="#" method="POST" class="border p-3">
+                    <div class="form-group">
+                        <lable for="hsa">He so a</lable>
+                        <input type="text" class="form-control" id="hsa" name="hsa">
+                        <p class="text-danger" id="err-hsa"></p>
+                    </div>
+                    <div class="form-group">
+                        <lable for="hsb">He so b</lable>
+                        <input type="text" class="form-control" id="hsb" name="hsb">
+                        <p class="text-danger" id="err-hsb"></p>
+                    </div>
+                    <div class="form-group">
+                        <lable for="hsc">He so c</lable>
+                        <input type="text" class="form-control" id="hsc" name="hsc">
+                        <p class="text-danger" id="err-hsc"></p>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="btnResult">Ket qua</button>
+                    <button type="button" class="btn btn-secondary" id="btnReset">Lam moi</button>
+                </form>
+                <p class="text-success" id="result"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // xử lý nút result
+        document.getElementById('btnResult').addEventListener('click', function(){
+            let inputHsa = document.getElementById('hsa');
+            let inputHsb = document.getElementById('hsb');
+            let inputHsc = document.getElementById('hsc');
+
+            let valHsa = inputHsa.value.trim();
+            let valHsb = inputHsb.value.trim();
+            let valHsc = inputHsc.value.trim();
+
+            let chkHsa, chkHsb, chkHsc = null;
+
+            let errHsa = document.getElementById('err-hsa');
+            let errHsb = document.getElementById('err-hsb');
+            let errHsc = document.getElementById('err-hsc');
+
+            let result = document.getElementById('result');
+
+            if(!isNaN(valHsa) && valHsa.length > 0){
+                chkHsa = true;
+                errHsa.innerHTML = '';
+                inputHsa.style.borderColor = '#cacaca';
+            }else{
+                chkHsa = false;
+                inputHsa.value = '';
+                errHsa.innerHTML = 'Vui long nhap so';
+                inputHsa.style.border = '1px solid #ff0000';
+                result.innerHTML = '';
+            }
+
+            if(!isNaN(valHsb) && valHsb.length > 0){
+                chkHsb = true;
+                errHsb.innerHTML = '';
+                inputHsb.style.borderColor = '#cacaca';
+            }else{
+                chkHsb = false;
+                inputHsb.value = '';
+                errHsb.innerHTML = 'Vui long nhap so';
+                inputHsb.style.border = '1px solid #ff0000';
+                result.innerHTML = '';
+            }
+
+            if(!isNaN(valHsc) && valHsc.length > 0){
+                chkHsc = true;
+                errHsc.innerHTML = '';
+                inputHsc.style.borderColor = '#cacaca';
+            }else{
+                chkHsc = false;
+                inputHsc.value = '';
+                errHsc.innerHTML = 'Vui long nhap so';
+                inputHsc.style.border = '1px solid #ff0000';
+                result.innerHTML = '';
+            }
+            
+            if(chkHsa && chkHsb && chkHsc){
+                let result = phuongTrinhBacHai(valHsa, valHsb, valHsc);
+
+                inputHsa.value = valHsa;
+                inputHsb.value = valHsb;
+                inputHsc.value = valHsc;
+
+                if(!result){
+                    document.getElementById('result').innerHTML = 'Phương trình vô nghiệm';
+                }else{
+                    document.getElementById('result').innerHTML = result;
+                }
+            }
+            return false;
+        });
+
+        // xử lý nút reset form
+        document.getElementById('btnReset').addEventListener('click', function(){
+            document.getElementById('hsa').value = '';
+            document.getElementById('hsb').value = '';
+            document.getElementById('hsc').value = '';
+
+            document.getElementById('hsa').style.borderColor = '#cacaca';
+            document.getElementById('hsb').style.borderColor = '#cacaca';
+            document.getElementById('hsc').style.borderColor = '#cacaca';
+
+            document.getElementById('err-hsa').innerHTML = '';
+            document.getElementById('err-hsb').innerHTML = '';
+            document.getElementById('err-hsc').innerHTML = '';
+
+            document.getElementById('result').innerHTML = '';
+        });
+
+        let phuongTrinhBacHai = function(a, b, c){
+            let detal = b*b - 4*a*c;
+            if(detal < 0){
+                return 'Phương trình vô nghiệm';
+            } else if (detal == 0) {
+                let x = -b / (2*a);
+                return 'Phương trình có nghiệm kép = ' + x;
+            } else {
+                let x1 = (-b + Math.sqrt(detal)) / (2*a);
+                let x2 = (-b - Math.sqrt(detal)) / (2*a);
+                return 'Phương trình 2 nghiệm phân biệt x1= ' + x1 + ', x2= ' + x2;
+            }
+        }
+    </script>
+</body>
+</html>

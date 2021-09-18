@@ -1,0 +1,65 @@
+.box {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ff0000;
+    /* overflow: hidden; */
+    /* overflow: scroll; */
+    /* overflow-y: scroll; */
+    overflow: auto;   
+}
+
+.box-children img{
+    width: 100px;
+    height: 100px;
+}
+
+.container {
+    width: 900px;
+    min-height: 600px;
+    margin: auto;
+}
+
+.col {
+    width: 25%;
+    height: 400px;
+    float: left;
+}
+
+.col-1 {
+    background-color: #ff0000;
+}
+
+.col-2 {
+    background-color: #00ff00;
+}
+
+.col-3 {
+    background-color: #0000ff;
+}
+
+.col-4 {
+    background-color: #ffff00;
+}
+
+/* responsive */
+
+/* @media only all and (min-width: 411px) and (max-width: 736px){
+    .col {
+        width: 100%;
+        float: none;
+    }
+} */
+
+/* Thiết lập style cho thiết bị màn hình rộng dưới 575.98px */
+@media (max-width: 575.98px){
+    .col {
+        width: 100%;
+        float: none;
+    }
+}
+/* Thiết lập style cho thiết bị màn hình rộng từ 576px đến 767.98px */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .col {  
+        width: 50%;
+    }
+}

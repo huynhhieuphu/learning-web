@@ -1,0 +1,144 @@
+/* NÂNG CAO CSS: biến trong css */
+/* pseudo-class: tương đương với thẻ html */
+:root {
+    /* 
+        cú pháp khai báo biến css: 
+        --tenbien : giatri;    
+    */
+    --dangerColor : #ff0000;
+    --dangerFontFamily : Tahoma;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 62,5%;
+}
+
+/* Selector Phân Cấp */
+section.box > section.box__content-1 + section.box__content-2 > div.box__child ~ h1.title
+{
+    /* 
+        cú pháp sử dụng biến 
+        property : var(--tenbien);
+    */
+    color: var(--dangerColor);
+    font-family: var(--dangerFontFamily);
+}
+
+.list__item-a + .list__item-b {
+    background-color : yellow;
+}
+
+.list__item-a ~ .list__item-e {
+    background-color: green;
+}
+
+.list__child > .list__child-ii{
+    background-color: tomato;
+}
+
+.list .list__number-1 {
+    background-color: lightblue;
+}
+
+.demo__title, .demo__link {
+    font-family: Tahoma;
+    font-size: 18px;
+    color: greenyellow;
+    background-color: orangered;
+}
+
+/* Pseudo class selector */
+
+.demoPseudo :first-child {
+    color:var(--dangerColor);
+}
+
+.demoPseudo :first-of-type {
+    background-color:lightblue;
+}
+
+.demoPseudo :last-child {
+    color: grey;
+}
+
+.demoPseudo :last-of-type {
+    background-color: yellowgreen;
+}
+
+.demoPseudo :nth-last-child(3) {
+    color: brown;
+}
+
+.demoPseudo :nth-last-of-type(3) {
+    background-color:chocolate;
+} 
+
+.demoPseudo :nth-child(4) {
+    color:olivedrab;
+}
+
+.demoPseudo :nth-of-type(2) {
+    background-color: lavender;
+}
+
+.parent :only-child {
+    color: var(--dangerColor);
+}
+
+input[type="text"]:focus {
+    width: 500px;
+    height: 20px;
+    border: 2px solid red;
+    outline: none; 
+}
+
+input[type="checkbox"]:checked {
+    width: 40px;
+    height: 40px;
+}
+
+.link a:link {
+    color : black;
+    font-size: 14px;
+}
+
+.link a:hover {
+    background-color: black;
+    color : pink;
+    font-size: 18px;
+}
+
+.link a:active {
+    background-color: red;
+    color : yellow;
+    font-size: 18px;    
+}
+
+.link a:visited {
+    color : pink;
+    font-size: 14px;
+}
+
+.lorem::first-letter {
+    font-size: 20px;
+    font-weight: bold;
+    color:red;
+}
+
+.lorem::first-line {
+    color : blue;
+}
+
+.lorem::before {
+    content: "HTML+CSS: ";
+}
+
+.lorem::after {
+    content: " JAVASCRIPT";
+}
+ .lorem::selection {
+    background-color: lime;
+    color: violet;
+ }
+

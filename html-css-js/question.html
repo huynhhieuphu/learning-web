@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question (jquery)</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<style>
+    .bg-question {
+        background: url('images/question.jpeg') no-repeat;
+        background-size: cover;
+        min-height: 720px;
+    }
+    .js-question {
+        display: none;
+    }
+    .js-animals:hover{
+        cursor: pointer;
+        opacity: 0.5;
+        transition: opacity 0.5s;
+    }
+</style>
+<body>
+    <div class="container-fluid bg-question">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3">
+                    <h1 class="text-center my-3 text-primary">Cau hoi vui ???</h1>
+                    <h3 class="text-center my-3 text-danger time">15</h3>
+
+                    <div class="row bg-white border p-3 js-question">
+                        <h3>1/ Con voi la con nao ?</h3>
+                        <div class="row mt-3">
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                <img src="images/voi.jpeg" alt="images/voi.jpeg" class="img-fluid w-100 h-100 js-animals yes">
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                <img src="images/ho.jpeg" alt="images/ho.jpeg" class="img-fluid w-100 h-100 js-animals">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                <img src="images/bao.jpeg" alt="images/bao.jpeg" class="img-fluid w-100 h-100 js-animals">
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                <img src="images/su-tu.jpeg" alt="images/su-tu.jpeg" class="img-fluid w-100 h-100 js-animals">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row bg-white border p-3 js-question">
+                        <h3>2/ Con ho la con nao ?</h3>
+                        <div class="row mt-3">
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                <img src="images/voi.jpeg" alt="images/voi.jpeg" class="img-fluid w-100 h-100 js-animals">
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                <img src="images/ho.jpeg" alt="images/ho.jpeg" class="img-fluid w-100 h-100 js-animals yes">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                <img src="images/bao.jpeg" alt="images/bao.jpeg" class="img-fluid w-100 h-100 js-animals">
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                <img src="images/su-tu.jpeg" alt="images/su-tu.jpeg" class="img-fluid w-100 h-100 js-animals">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row bg-white border p-3 js-question js-question-last">
+                        <h3>3/ Con su tu la con nao ?</h3>
+                        <div class="row mt-3">
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                <img src="images/voi.jpeg" alt="images/voi.jpeg" class="img-fluid w-100 h-100 js-animals">
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                <img src="images/ho.jpeg" alt="images/ho.jpeg" class="img-fluid w-100 h-100 js-animals">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                <img src="images/bao.jpeg" alt="images/bao.jpeg" class="img-fluid w-100 h-100 js-animals">
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                <img src="images/su-tu.jpeg" alt="images/su-tu.jpeg" class="img-fluid w-100 h-100 js-animals yes">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 1. Hiển thị câu hỏi đầu tiên
+            $('.js-question:first').fadeIn();
+
+            let countClick = 0;
+
+            let time = 15;
+            let countTime;
+
+            function handleCountTime(){
+                countTime = setInterval(function(){
+                    time--;
+                    // hiển thị thời gian
+                    $('h3.time').text(time);
+                    
+                    if(time == 0){
+                        clearInterval(countTime);
+                        alert('Het thoi gian');
+                        window.location.reload(true);
+                    }
+                },1000);
+            }
+
+            handleCountTime();
+
+            $('img.js-animals').click(function(){
+                // dừng điếm thời gian
+                clearInterval(countTime);
+
+                // kiểm tra đáp án
+                let self = $(this);
+                let yes = self.hasClass('yes');
+
+                if(yes){
+                    countClick = 0;
+                    alert('Cau tra chinh xac');
+                    // cau hoi tiep theo hien thi len
+
+                    // console.log(self.parents('.js-question'));
+                    
+                    // Kiểm tra câu hỏi cuối cùng
+                    if(self.parents('.js-question').hasClass('js-question-last')){
+                        clearInterval(countTime);
+                        alert('Chuc mung ban vuot qua thu thach');
+                    }else{
+                        self.parents('.js-question').hide();
+                        self.parents('.js-question').next().fadeIn(2000);
+                        // dem lai thoi gian
+                        time = 15;
+                        handleCountTime();
+                    }
+                }else{
+                    countClick++;
+                    if(countClick > 2){
+                        alert('That Bai');
+                        window.location.reload(true);
+                    }else{
+                        alert('cau tra loi sai');
+                        handleCountTime();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

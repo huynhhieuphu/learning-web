@@ -1,0 +1,95 @@
+/* Comment CSS */
+
+/* CSS Selector */
+
+/* html seletor */
+h2 {
+    color : red;
+}
+
+/* selector kết hợp - trường hợp này tìm đến thẻ h2 có class frontend */
+/* ưu tiên hơn class selector */
+h2.frontend {
+    color: blue;
+}
+
+/* class selector */
+/* tìm tất cả class có frontend */
+.frontend {
+    color : yellow;
+}
+
+/* id selector */
+/* #tutorial {
+    color : green;
+} */
+
+/* Attribute Selector */
+
+input[type] {
+    border: thin solid blue;
+}
+
+input[type="text"] {
+    border: thin solid red;
+}
+
+input[class~="input"] {
+    border: thin dotted green;
+}
+
+input[class*="mail"] {
+    border: 3px dotted violet;
+}
+
+a[href$=".net"] {
+    color: red;
+}
+
+a[href$=".com"] {
+    color: green;
+}
+
+a[href^="https"] {
+    color: indigo;
+}
+
+a[class^="link-vn"]{
+    background-color: grey;
+}
+
+p[class|="title"] {
+    color: hotpink;
+}
+
+/* Quy tắc đặt tên BEM */
+
+/* Block */
+.card {
+    width: 200px;
+    height: 400px;
+    border: 1px solid gray;
+}
+
+/* Element */
+.card__button {
+    min-width: 120px;
+    min-height: 20px;
+    padding: 10px 20px;
+}
+
+/* modifier */
+.card__button-success
+{
+    background-color: green;
+}
+
+.card__button-danger
+{
+    background-color: red;
+}
+
+/* Selecter phân cấp */
+.nav__menu .nav__link {
+    background-color: red;
+}

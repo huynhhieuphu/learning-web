@@ -1,0 +1,229 @@
+<!DOCTYPE html> <!-- Khai báo html 5 -->
+<html lang="en"> <!-- Khai báo tài liệu html, sử dụng ngôn ngữ tiếng anh -->
+<head> <!-- Nơi định nghĩa các thông tin website -->
+    <!-- các thẻ meta hỗ trợ việc SEO -->
+    <meta charset="UTF-8"> <!-- Hiển thị định dạng văn bản  -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Nhắc nhớ sử dụng trình duyệt IE=edge -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hỗ trợ responsive -->
+    <meta name="author"content="Tony Teo"> <!-- giới thiệu nhà phát triển -->
+    <meta name="keyword" content="HOC LAP TRINH TUOI 30, LAP TRINH 30, LT30T"> <!-- các từ khoá để search tìm kiếm , không đươc quá 120 ký tự -->
+    <meta name="description" content="Blog hoc lap trinh tuoi 30"> <!-- mô tả nội dung web -->
+    
+    <title>Learning HTML basic</title> <!-- Tiêu đề trang web -->
+
+    <noscript>Javascript không hoạt động</noscript> <!-- Thẻ nhắc người dùng kiểm tra javascript trong trình duyệt (được bật không) -->
+
+    <link rel="stylesheet" type="text/css" href="css/style.css"> <!-- nhúng file css từ bên ngoài vào html  -->
+    <link rel="icon" type="image/png" href="images/favicon_48x48.png"> <!-- nhúng icon vào html -->
+    <style type="text/css">
+        
+        /* Code css here */
+
+    </style><!-- css trực tiếp trong html -->
+</head>
+<body> <!-- phần hiển thị tất cả nội dung website ra màn hình -->
+
+    <!-- Các thẻ html làm việc văn bản + tiêu đề + định dạng văn bản -->
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error, dolore amet. Asperiores dolorum nemo voluptatum. Eaque fugiat tempora asperiores quaerat, ab autem vel sapiente numquam, animi velit aperiam omnis iusto?</p>
+
+    <h1 id="title1">This is title h1</h1>
+    <h2>This is title h2</h2>
+    <h3>This is title h3</h3>
+    <h4>This is title h4</h4>
+    <h5>This is title h5</h5>
+    <h6 id="title6">This is title h6</h6>
+
+    <p class="para-1">In đậm - <strong>hỗ trợ SEO</strong></p>
+    <p class="para-1"><b>In đậm</b> - không hỗ trợ</p>
+
+    <p class="para-2">In Nghiêng - <em>hỗ trợ SEO</em></p>
+    <p class="para-2"><i>In Nghiêng</i> - không hỗ trợ</p>
+
+    <p class="para-3"><mark>Lorem ipsum</mark> dolor sit amet consectetur adipisicing elit. <u>Vitae consectetur modi dolorem porro</u>. Veniam facere at aperiam cum, inventore modi maxime, <del>excepturi possimus enim accusamus</del> magnam expedita exercitationem quasi sint?</p>
+
+    <br><br/>
+
+    <!-- HTML liên kết -->
+    <a href="https://www.google.com.vn" title="Go go google" target="_blank">Click here</a>
+    
+    <br><br>
+    <!-- neo link / anchor link -->
+    <a href="#title1">Go go tag h1</a>
+
+    <br><br>
+
+    <!-- javascript:void(0) - tắt đi thuộc tính href -->
+    <a href="javascript:void(0);">Tắt đi thuộc tính href</a> 
+
+    <br><br> 
+
+    <!-- Nhóm thẻ danh sách -->
+    <ul>
+        <li><a href="javascript:void(0);">Home</a></li>
+        <li><a href="javascript:void(0);">News</a></li>
+        <li><a href="javascript:void(0);">Contact</a></li>
+    </ul>
+
+    <ol>
+        <li>Tp.HCM</li>
+        <li>Bình Dương</li>
+        <li>Tây Ninh</li>
+        <li>Long An</li>
+    </ol>
+
+    <br><br>
+
+    <!-- HTML bảng -->
+    <table width="100%" border="1" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Brand</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td rowspan="3">Apple</td>
+                <td>iphone XS plus</td>
+                <td>1</td>
+                <td>27000</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <!-- <td>Apple</td> -->
+                <td>iwatch 6</td>
+                <td>1</td>
+                <td>11000</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <!-- <td>Apple</td> -->
+                <td>Airpod 2</td>
+                <td>1</td>
+                <td>3000</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">Total</td>
+                <td>41000</td>
+            </tr>
+        </tfoot>    
+    </table>
+
+    <br><br>
+
+    <table width="50%" border="1" cellpadding="30" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Thoi gian</th>
+                <th colspan="2">Tran dau</th>
+                <th>Truc tiep</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="4">Ngoai hang Anh</td>
+            </tr>
+            <tr>
+                <td>06/12 02:30</td>
+                <td>TEAM A</td>
+                <td>TEAM B</td>
+                <td>K+NS</td>
+            </tr>
+            <tr>
+                <td>06/12 03:15</td>
+                <td>TEAM C</td>
+                <td>TEAM D</td>
+                <td>K+PM</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br><br>
+
+    <!-- Nhóm thẻ media -->
+    <img src="images/favicon_48x48.png" alt="icon image" title="icon image" width="300" height="300">
+
+    <br><br>
+
+    <video src="media/Cách sử dụng Git trong THỰC TẾ  Github.mp4" autobuffer autoloop loop controls poster="images/favicon_48x48.png" width="400px"></video>
+    
+    <br><br>
+
+    <audio src="media/Chiều Tây Đô - Hoàng Thục Linh.m4a" autobuffer autoloop loop controls></audio>
+    
+    <br><br>
+
+    <!-- Nhóm thẻ đồ hoạ -->
+    <canvas width="1000" height="400" style="border: 1px solid red;"></canvas>
+
+    <!-- Thẻ youtube -->
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/5L4DQfVIcdg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+    <br><br>
+
+    <!-- Nhóm form -->
+    <form method="POST" action="server.php" enctype="multipart/form-data">
+        <label for="uname">Username: </label>
+        <input type="text" name="uname" id="uname">
+        <br/><br/>
+        <label for="pass">Password: </label>
+        <input type="password" name="pass" id="pass">
+        <br/><br/>
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email">
+        <br/><br/>
+        <label for="url">Url: </label>
+        <input type="url" name="url" id="url">
+        <br/><br/>
+        <label for="number">Number: </label>
+        <input type="number" name="number" id="number">
+        <br/><br/>
+        <label for="color">color: </label>
+        <input type="color" name="color" id="color">
+        <br/><br/>
+        <label for="date">date: </label>
+        <input type="date" name="date" id="date">
+        <br/><br/>
+        <label for="week">week: </label>
+        <input type="week" name="week" id="week">
+        <br/><br/>
+        <label for="month">month: </label>
+        <input type="month" name="month" id="month">
+        <br/><br/>
+        <label for="time">time: </label>
+        <input type="time" name="time" id="time">
+        <br/><br/>
+
+        <label for="uploadfile">uploadfile: </label>
+        <input type="file" name="uploadfile" id="uploadfile">
+        <br/><br/>
+
+        <label for="category">Category: </label>
+        <select name="category" id="category">
+            <option value="1">Thoi su</option>
+            <option value="2">The Thao</option>
+            <option value="3">Giai Tri</option>
+        </select>
+        <br><br>
+
+        <label for="gender">Gender: </label>
+        <span>Male</span><input type="radio" name="gender" id="gender-male" checked>
+        <span>Female</span><input type="radio" name="gender" id="gender-female">
+        <br><br>
+
+        <label for="relax">Relax: </label>
+        <span>Music</span><input type="checkbox" name="relax" id="relax-music" checked>
+        <span>Game</span><input type="checkbox" name="relax" id="relax-game" checked>
+        <span>Yoga</span><input type="checkbox" name="relax" id="relax-yoga">
+        <br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,117 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -webkit-box-sizing: border-box; /* for Chrome, Safari */
+    -moz-box-sizing: border-box; /* for Firefox */
+    -ms-box-sizing: border-box; /* for Internet Explorer */
+    -o-box-sizing: border-box; /* for Opera */
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%; /* tương đương 1rem = 10px */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    line-height: 1;
+}
+
+:root {
+    --textColorNav: #ffffff;
+    --bgColorNav : #333031;
+    --hoverColorNav : #292929;
+    --hoverColorTextNav : #DACB46;
+}
+/* css nav menu */
+nav.nav {
+    width: 100%;
+    min-height: 4rem;
+    background-color: var(--bgColorNav);
+    font-size: 2rem;
+    line-height: 4rem;
+    color: var(--textColorNav);
+    text-transform: uppercase;
+    border-top: 2px solid var(--hoverColorTextNav);
+}
+
+nav.nav .icon__menu {
+    display: none;
+    visibility: hidden;
+}
+
+nav.nav a.nav__link {
+    color: var(--textColorNav);
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+ul.nav__menu {
+    display: flex;
+    justify-content: space-around;
+}
+
+ul.nav__menu li.nav__item {
+    text-align: center;
+    line-height: 4rem;
+    position: relative;
+    padding: 0 1rem;
+}
+
+ul.nav__menu li.nav__item:hover {
+    
+    background-color: var(--hoverColorNav);
+}
+ul.nav__menu li.nav__item:hover > a.nav__link{
+    color: var(--hoverColorTextNav);
+}
+/* css dropdown */
+.nav__dropdown {
+    position: absolute;
+    min-width: 50rem;
+    background-color: var(--bgColorNav);
+    top: 4rem;
+    left: 0;
+    display: none;
+    visibility: hidden;
+}
+/* Hiển thị danh sách theo dạng table */
+li.nav__item:hover > .nav__dropdown {
+    display: table;
+    visibility: visible;
+}
+
+.nav__dropdown > ul.nav__dropdown-menu {
+    display: table-row;
+}
+
+ul.nav__dropdown-menu >  li.nav__item{
+    display: table-cell;
+}
+
+/* responsive */
+
+@media (max-width: 576px) {
+    nav.nav .icon__menu {
+        display: block;
+        visibility: visible;
+    }
+
+    nav.nav ul.nav__menu {
+        display: none;
+        visibility: hidden;
+    }
+}

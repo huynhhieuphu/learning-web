@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator - Javascript (jquery)</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3 border p-3 my-3">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <h1 class="text-center">Simple Calculator</h1>
+                        <input type="text" class="form-control my-2 js-calculator" disabled>
+                        <h4 class="text-right my-2 js-result"></h4>
+                    </div>
+                </div>
+                <hr>
+                <div class="row my-2">
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn btn-danger btn-sm w-100 js-on-off">ON/OFF</button>
+                    </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn btn-secondary btn-sm w-100 js-clear">[C]lear</button>
+                    </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn btn-secondary btn-sm w-100 js-delete">[D]elete</button>
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn border btn-sm w-100 js-btn">1</button>
+                    </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn border btn-sm w-100 js-btn">2</button>
+                    </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn border btn-sm w-100 js-btn">3</button>
+                    </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn btn-info btn-sm w-100 js-btn">x</button>
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn border btn-sm w-100 js-btn">4</button>
+                    </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn border btn-sm w-100 js-btn">5</button>
+                    </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn border btn-sm w-100 js-btn">6</button>
+                    </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn btn-info btn-sm w-100 js-btn">/</button>
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn border btn-sm w-100 js-btn">7</button>
+                    </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn border btn-sm w-100 js-btn">8</button>
+                    </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn border btn-sm w-100 js-btn">9</button>
+                    </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn btn-info btn-sm w-100 js-btn">+</button>
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn border btn-sm w-100 js-btn">0</button>
+                    </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn border btn-sm w-100 js-btn">.</button>
+                    </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn btn-success btn-sm w-100 js-show-result">=</button>
+                    </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <button type="button" class="btn btn-info btn-sm w-100 js-btn">-</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <!-- Nhúng thư viện mathjs.org -->
+    <script src="js/math.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 1/khóa các phím khác trừ button on/off
+            $('.js-clear').attr('disabled', true).addClass('js-flag-block');
+            $('.js-delete').attr('disabled', true).addClass('js-flag-block');
+            $('.js-btn').attr('disabled', true).addClass('js-flag-block');
+            $('.js-result').attr('disabled', true).addClass('js-flag-block');
+            
+            // 2/bắt sự button on/off :  khởi động hoặc tắt máy
+            $('.js-on-off').click(function(){
+                // xóa bỏ các biểu thức và kết quả
+                $('.js-result').text('');
+                $('.js-calculator').val('');
+
+                $('.js-clear').toggleClass('js-flag-block');
+                $('.js-delete').toggleClass('js-flag-block');
+                $('.js-btn').toggleClass('js-flag-block');
+                $('.js-result').toggleClass('js-flag-block');
+
+                // check tồn tại class js-flag-block
+                if($('.js-clear').hasClass('js-flag-block')){
+                    $('.js-clear').attr('disabled', true);
+                }else{
+                    $('.js-clear').attr('disabled', false);
+                }
+
+                if($('.js-delete').hasClass('js-flag-block')){
+                    $('.js-delete').attr('disabled', true);
+                }else{
+                    $('.js-delete').attr('disabled', false);
+                }
+
+                if($('.js-btn').hasClass('js-flag-block')){
+                    $('.js-btn').attr('disabled', true);
+                }else{
+                    $('.js-btn').attr('disabled', false);
+                }
+
+                if($('.js-result').hasClass('js-flag-block')){
+                    $('.js-result').attr('disabled', true);
+                }else{
+                    $('.js-result   ').attr('disabled', false);
+                }
+            });
+            
+            // 3/ bắt sự button số và phép toán
+            $('.js-btn').click(function(){
+                let self = $(this);
+                let valButton = self.text().trim();
+                // console.log(valButton);
+
+                // 3.1/ Hiển thị tính toán trong input;
+                // giải thích: gán giá trị vào ô input - nối chuỗi
+                $('.js-calculator').val($('.js-calculator').val() + valButton);
+            });
+
+             // 4/ bắt sự kiện hiển thị kết quả
+             $('.js-show-result').click(function(){
+                // lấy ra toàn bộ biểu thức tính toán đã nhập trước đó
+                let calculator = $('.js-calculator').val().trim();
+                calculator = calculator.replace(/x/gi, '*');
+                let result = math.evaluate(calculator);
+                
+                // hiển thị kết quả
+                $('.js-result').text(result);
+             });
+
+             // 5/ bắt sự kiện xóa biểu thức và kết quả
+             $('.js-clear').click(function(){
+                $('.js-result').text('');
+                $('.js-calculator').val('');
+             });
+
+             // 6/ bắt sự kiện xóa ký tự nhập
+             $('.js-delete').click(function(){
+                $('.js-result').text('');
+                let characters = $('.js-calculator').val().trim();
+                $('.js-calculator').val(characters.substring(0, characters.length - 1));
+             });
+        });
+    </script>
+</body>
+</html>

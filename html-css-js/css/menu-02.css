@@ -1,0 +1,77 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: content-box;
+}
+
+li {
+    list-style: none;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    --textColorNav: #CACACA;
+    --bgColorNav : #282A35;
+    --hoverColorNav : #05A96D;
+    --hoverTextColorNav : #ffffff;
+}
+
+/* CSS Menu */
+nav.nav {
+    width: 100%;
+    min-height: 4.8rem;
+    background-color: var(--bgColorNav);
+    display: flex;
+    align-items: center;
+}
+
+ul.nav__menu {
+    display: flex;
+}
+
+ul.nav__menu li.nav__item {
+    position: relative;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    padding: 1.2rem 1.6rem;
+}
+
+li.nav__item a.nav__link {
+    color: var(--textColorNav);
+}
+/* CSS dropdown menu */
+li.nav__item ul.nav__dropdown {
+    position: absolute;
+    width: 20rem;
+    background-color: var(--bgColorNav);
+    top: 4.5rem;
+    left: 0rem;
+    display: none;
+    visibility: hidden;
+}
+
+ul.nav__menu li.nav__item:hover {
+    background-color: var(--hoverColorNav);
+}
+
+li.nav__item:hover > a.nav__link {
+    color: var(--hoverTextColorNav);
+}
+
+li.nav__item:hover ul.nav__dropdown{
+    display: block;
+    visibility: visible;
+}
